@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../redux/slices/authSlice';
+import image from '../assets/car_logo.jpg';
 
 const Registration = () => {
   const [username, setUsername] = useState('');
@@ -44,10 +45,10 @@ const Registration = () => {
   };
 
   return (
-    <div className="container p-2 pt-5 mt-4 h-1/2 d-flex align-items-center justify-content-center">
-      <div className="pt-5 mt-5 col-md-12 col-10 row">
-        <div className="mx-auto mt-5 col-md-6">
-          <form onSubmit={handleSubmit} className="p-6 bg-white rounded shadow-lg">
+    <div className=" login-page container full-height h-1/2 d-flex align-items-center justify-content-center" style={{ backgroundImage: `url(${image})` }}>
+      <div className="login-blured">
+        <div className="login-form-div">
+          <form onSubmit={handleSubmit} className="login-form">
             <h2 className="mb-4 text-2xl font-bold">Registration</h2>
             <input
               type="text"

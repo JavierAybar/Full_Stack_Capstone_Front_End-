@@ -21,10 +21,9 @@
 
 <a href="https://github.com/JavierAybar/Full_Stack_Capstone_Back_End">See the Rails Application</a>
 
-- HTML
-- CSS
-- JavaScript
 - React
+- Redux
+- TailwindCss
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 

@@ -1,15 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom"; 
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { fetchVehicles } from '../../redux/reducers/vehiclesSlice';
 import { addReservation } from '../../redux/reservation/reservSlice';
-import image from '../../assets/mercedes-reservation.png';
+import image from '../../assets/cars_parking.jpg';
 
 const AddReservationPage = () => {
   // Hooks and state
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const vehicles = useSelector((state) => state.vehicle.vehicle);
   const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -46,14 +47,14 @@ const AddReservationPage = () => {
       // Show a success toast message
       toast.success('Reservation added successfully!');
       // Redirect to "My Reservations"
-      // navigate('/my-reservations');
+      navigate('/my-reservations');
     });
   };
   // , backgroundSize: 'cover', backgroundPosition: 'center'
   // JSX for the component
   return (
     <div className="w-full bg-center bg-cover " style={{ backgroundImage: `url(${image})` }}>
-      <div className="flex flex-col items-center 2xl:pt-[80px] lg:pt-[160px] pt-[130px] w-full h-screen bg-opacity-80 bg-lime-500 backdrop-opacity-60">
+      <div className="reservation flex flex-col items-center 2xl:pt-[80px] lg:pt-[160px] pt-[130px] w-full h-screen bg-opacity-80 backdrop-opacity-60">
         <h2 className="mb-3 text-lg font-extrabold tracking-widest text-white sm:text-4xl">BOOK A VEHICLE TEST-RIDE</h2>
         <hr className="w-[60%] text-white border-t-4 mb-3" />
         <p className="sm:w-[45%] w-[90%] mb-10 text-sm font-semibold text-white sm:text-lg">
@@ -63,8 +64,8 @@ const AddReservationPage = () => {
           facilities. If you wish to find out if a test-ride is available in your area, please use
           the selector below.
         </p>
-        <div className="mx-auto ">
-          <form className="p-6 bg-white rounded shadow-lg sm:w-[430px] w-[340px]" onSubmit={handleSubmit(onSubmit)}>
+        <div className="login-form-div">
+          <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
             {/* City Input */}
             <label htmlFor="city" className="block mt-2 mb-2 text-sm font-medium text-gray-800 dark:text-back">
               Select your city

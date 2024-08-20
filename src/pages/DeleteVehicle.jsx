@@ -7,7 +7,11 @@ const DeleteVehicle = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    document.body.classList.add('enable-scrolling');
     dispatch(fetchVehicles());
+    return () => {
+      document.body.classList.remove('enable-scrolling');
+    };
   }, [dispatch]);
 
   if (isLoading) {

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { toast } from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 
@@ -12,10 +13,13 @@ import image from '../../assets/mercedes-reservation.png';
 
 const AddReservationPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   console.log(id);
 
-  const authUser = useSelector((state) => state.auth.user.data);
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+
+  const authUser = storedUser ? storedUser.data.id : null;
 
   const { register, handleSubmit } = useForm();
 
@@ -26,15 +30,15 @@ const AddReservationPage = () => {
   const onSubmit = (data) => {
     const formDataWithIds = {
       ...data,
-      user_id: authUser.id,
+      user_id: authUser,
       vehicle_id: id,
     };
 
     dispatch(addReservation(formDataWithIds)).then(() => {
       // Show a success toast message
-      toast.success('Reservation added successfully!');
+      toast.success("Reservation added successfully!");
       // Redirect to "My Reservations"
-      // navigate('/my-reservations');
+      navigate("/my-reservations");
     });
   };
 
@@ -50,8 +54,8 @@ const AddReservationPage = () => {
           facilities. If you wish to find out if a test-ride is available in your area, please use
           the selector below.
         </p>
-        <div className="mx-auto ">
-          <form className="p-6 bg-white rounded shadow-lg sm:w-[430px] w-[340px]" onSubmit={handleSubmit(onSubmit)}>
+        <div className="login-form-div">
+          <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
             {/* City Input */}
             <label htmlFor="city" className="block mt-2 mb-2 text-sm font-medium text-gray-800 dark:text-back">
               Select your city
