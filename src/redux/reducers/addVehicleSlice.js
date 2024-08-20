@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const mainURL = 'https://api-endpoint-qn9n.onrender.com/';
+const mainURL = 'https://full-stack-capstone-back-end.onrender.com/';
 export const addNewVehicle = createAsyncThunk('car/addNewVehicle', async (formData) => {
   const response = await axios.post(`${mainURL}/api/v1/vehicles/`, {
     vehicle: formData,

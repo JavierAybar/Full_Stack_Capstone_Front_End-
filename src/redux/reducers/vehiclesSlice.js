@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = 'https://api-endpoint-qn9n.onrender.com/api/v1';
+const url = 'https://full-stack-capstone-back-end.onrender.com/api/v1';
 
 export const fetchVehicles = createAsyncThunk('vehicles/fetchVehicles', async () => {
   const response = await axios.get(`${url}/vehicles`);

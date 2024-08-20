@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const apiURL = 'https://api-endpoint-qn9n.onrender.com/api/v1/reservations/';
+const apiURL = 'https://full-stack-capstone-back-end.onrender.com/api/v1/reservations/';
 
 // Thunks
 export const fetchReservations = createAsyncThunk(

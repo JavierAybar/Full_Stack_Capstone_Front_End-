@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchVehicleDetails = createAsyncThunk(
   'vehicleDetails/getVehicleDetails',
   async (vehicleId) => {
-    const response = await fetch(`https://api-endpoint-qn9n.onrender.com/api/v1/vehicles/${vehicleId}`);
+    const response = await fetch(`https://full-stack-capstone-back-end.onrender.com/api/v1/vehicles/${vehicleId}`);
     const data = await response.json();
     console.log(data);
     return data;
